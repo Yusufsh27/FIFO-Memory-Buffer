@@ -1,0 +1,403 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.06 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.06 secs
+ 
+--> Reading design: FIFO.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "FIFO.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "FIFO"
+Output Format                      : NGC
+Target Device                      : xc5vlx20t-2-ff323
+
+---- Source Options
+Top Module Name                    : FIFO
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Off
+Reduce Control Sets                : Off
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 32
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "FIFO.v" in library work
+Module <FIFO> compiled
+No errors in compilation
+Analysis of file <"FIFO.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <FIFO> in library <work> with parameters.
+	ADDR_WIDTH = "00000000000000000000000000001000"
+	DATA_WIDTH = "00000000000000000000000000001000"
+	RAM_DEPTH = "00000000000000000000000100000000"
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <FIFO>.
+	ADDR_WIDTH = 32'sb00000000000000000000000000001000
+	DATA_WIDTH = 32'sb00000000000000000000000000001000
+	RAM_DEPTH = 32'sb00000000000000000000000100000000
+Module <FIFO> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <FIFO>.
+    Related source file is "FIFO.v".
+WARNING:Xst:647 - Input <data_in> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:653 - Signal <data_ram> is used but never assigned. This sourceless signal will be automatically connected to value 00000000.
+    Found 8-bit register for signal <data_out>.
+    Found 8-bit up counter for signal <rd_pointer>.
+    Found 9-bit updown counter for signal <status_cnt>.
+    Found 8-bit up counter for signal <wr_pointer>.
+    Summary:
+	inferred   3 Counter(s).
+	inferred   8 D-type flip-flop(s).
+Unit <FIFO> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Counters                                             : 1
+ 9-bit updown counter                                  : 1
+# Registers                                            : 1
+ 8-bit register                                        : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+WARNING:Xst:1710 - FF/Latch <data_out_0> (without init value) has a constant value of 0 in block <FIFO>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_out_1> (without init value) has a constant value of 0 in block <FIFO>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_out_2> (without init value) has a constant value of 0 in block <FIFO>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_out_3> (without init value) has a constant value of 0 in block <FIFO>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_out_4> (without init value) has a constant value of 0 in block <FIFO>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_out_5> (without init value) has a constant value of 0 in block <FIFO>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_out_6> (without init value) has a constant value of 0 in block <FIFO>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_out_7> (without init value) has a constant value of 0 in block <FIFO>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2404 -  FFs/Latches <data_out<7:0>> (without init value) have a constant value of 0 in block <FIFO>.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Counters                                             : 1
+ 9-bit updown counter                                  : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <FIFO> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block FIFO, actual ratio is 0.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 9
+ Flip-Flops                                            : 9
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : FIFO.ngr
+Top Level Output File Name         : FIFO
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 24
+
+Cell Usage :
+# BELS                             : 57
+#      GND                         : 1
+#      LUT4                        : 8
+#      LUT5                        : 5
+#      LUT6                        : 22
+#      MUXCY                       : 8
+#      MUXF7                       : 4
+#      XORCY                       : 9
+# FlipFlops/Latches                : 9
+#      FDCE                        : 9
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 15
+#      IBUF                        : 5
+#      OBUF                        : 10
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 5vlx20tff323-2 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:               9  out of  12480     0%  
+ Number of Slice LUTs:                   35  out of  12480     0%  
+    Number used as Logic:                35  out of  12480     0%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:     35
+   Number with an unused Flip Flop:      26  out of     35    74%  
+   Number with an unused LUT:             0  out of     35     0%  
+   Number of fully used LUT-FF pairs:     9  out of     35    25%  
+   Number of unique control sets:         1
+
+IO Utilization: 
+ Number of IOs:                          24
+ Number of bonded IOBs:                  16  out of    172     9%  
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                1  out of     32     3%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 9     |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-----------------------------------+------------------------+-------+
+Control Signal                     | Buffer(FF name)        | Load  |
+-----------------------------------+------------------------+-------+
+n_rst                              | IBUF                   | 9     |
+-----------------------------------+------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -2
+
+   Minimum period: 2.899ns (Maximum Frequency: 344.899MHz)
+   Minimum input arrival time before clock: 3.436ns
+   Maximum output required time after clock: 4.135ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 2.899ns (frequency: 344.899MHz)
+  Total number of paths / destination ports: 717 / 18
+-------------------------------------------------------------------------
+Delay:               2.899ns (Levels of Logic = 3)
+  Source:            status_cnt_3 (FF)
+  Destination:       status_cnt_0 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: status_cnt_3 to status_cnt_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q             4   0.396   0.914  status_cnt_3 (status_cnt_3)
+     LUT6:I0->O            1   0.086   0.412  status_cnt_not000210 (status_cnt_not000210)
+     LUT5:I4->O            1   0.086   0.412  status_cnt_and00011_SW0 (N10)
+     LUT6:I5->O            9   0.086   0.323  status_cnt_not000249 (status_cnt_not0002)
+     FDCE:CE                   0.185          status_cnt_0
+    ----------------------------------------
+    Total                      2.899ns (0.839ns logic, 2.060ns route)
+                                       (28.9% logic, 71.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 528 / 18
+-------------------------------------------------------------------------
+Offset:              3.436ns (Levels of Logic = 4)
+  Source:            almost_full (PAD)
+  Destination:       status_cnt_0 (FF)
+  Destination Clock: clk rising
+
+  Data Path: almost_full to status_cnt_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            19   0.694   0.746  almost_full_IBUF (almost_full_IBUF)
+     LUT4:I0->O            1   0.086   0.819  status_cnt_not000233 (status_cnt_not000233)
+     LUT5:I0->O            1   0.086   0.412  status_cnt_and00011_SW0 (N10)
+     LUT6:I5->O            9   0.086   0.323  status_cnt_not000249 (status_cnt_not0002)
+     FDCE:CE                   0.185          status_cnt_0
+    ----------------------------------------
+    Total                      3.436ns (1.137ns logic, 2.299ns route)
+                                       (33.1% logic, 66.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 18 / 2
+-------------------------------------------------------------------------
+Offset:              4.135ns (Levels of Logic = 3)
+  Source:            status_cnt_5 (FF)
+  Destination:       empty (PAD)
+  Source Clock:      clk rising
+
+  Data Path: status_cnt_5 to empty
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q             4   0.396   0.675  status_cnt_5 (status_cnt_5)
+     LUT4:I0->O           11   0.086   0.458  empty_SW0 (N2)
+     LUT6:I5->O            2   0.086   0.290  empty (empty_OBUF)
+     OBUF:I->O                 2.144          empty_OBUF (empty)
+    ----------------------------------------
+    Total                      4.135ns (2.712ns logic, 1.423ns route)
+                                       (65.6% logic, 34.4% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 4.00 secs
+Total CPU time to Xst completion: 4.67 secs
+ 
+--> 
+
+Total memory usage is 284948 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   11 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+
